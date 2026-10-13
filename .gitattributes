@@ -1,0 +1,39 @@
+# ============================================================
+# 慢慢Talk · 行尾与文本规范
+# 目的：把「换行符」固化进仓库本身，不依赖每个人本机的 git 设置。
+#       否则同一份文件在不同机器上会产生满屏「整行都改了」的伪 diff。
+# ============================================================
+
+# 默认：文本文件在仓库里统一存 LF。
+# Git 会在检出时按平台自动转换（Windows 用户本地仍是 CRLF，不影响编辑）。
+* text=auto eol=lf
+
+# --- 明确按文本处理的文件 ---
+*.md      text eol=lf
+*.txt     text eol=lf
+*.py      text eol=lf
+*.json    text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.toml    text eol=lf
+LICENSE   text eol=lf
+
+# --- 二进制文件：不要做任何行尾转换 ---
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.webp    binary
+*.ico     binary
+*.pdf     binary
+*.zip     binary
+*.gz      binary
+*.wav     binary
+*.mp3     binary
+*.m4a     binary
+*.pt      binary
+*.bin     binary
+*.onnx    binary
+
+# --- 让 GitHub 语言统计更准 ---
+*.md      linguist-documentation

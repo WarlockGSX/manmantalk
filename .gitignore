@@ -1,0 +1,74 @@
+# ============================================================
+# 慢慢Talk · 不要提交的文件
+# 目的：只把 Skill 本体的文本与脚本提交上去，
+#       把「运行时产物 / 缓存 / 个人数据 / 打包件」排除在外。
+# ============================================================
+
+# --- Python 运行时缓存 ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+.Python
+
+# --- 转写脚本的默认输出 ---
+# scripts/transcribe.py 的 --out 默认写入 ./output
+output/
+*.srt
+*.vtt
+*.txt.tmp
+
+# --- 语音模型与音频 ---
+# 首次运行会下载 whisper 模型（small 约 500MB）；
+# --model-dir 指向的本地模型目录同样不入库。
+models/
+model/
+*.bin
+*.pt
+*.onnx
+# 音频/视频素材（含来自真实对话的录音，绝不可公开）
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.opus
+*.wma
+*.mp4
+*.mov
+*.mkv
+*.amr
+*.silk
+
+# --- 长期档案数据 ---
+# scripts/memory_store.py 默认写入本机用户目录
+# （Windows: %LOCALAPPDATA%，macOS: ~/Library/Application Support/manmantalk，
+#   Linux: $XDG_DATA_HOME/manmantalk）。若改到仓库内，同样不入库。
+memory/
+data/
+*.memory.json
+*.profile.json
+
+# --- 打包产物 ---
+*.zip
+*.tar.gz
+*.tgz
+
+# --- 编辑器与系统杂物 ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- 本仓库的临时工作区 ---
+# 打包脚本 _packofficial.py / _packflat.py / _packverify.py 都在 tmp/ 下，
+# 但 tmp/ 里通常还有中间产物，按需取消下一行注释。
+# tmp/
